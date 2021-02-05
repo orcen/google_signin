@@ -38,13 +38,13 @@ class FrontendUserProvider extends AbstractUserProvider
      * Check if the organisation from the google user that tries to login
      * matches one of the configured organisations.
      *
-     * @param string $organisation
+     * @param string|null $organisation
      * @return bool
      */
-    public function isUserInApprovedOrganisation(string $organisation): bool
+    public function isUserInApprovedOrganisation( $organisation): bool
     {
         if (empty($organisation)) {
-            return false;
+            return true;
         }
 
         $extensionConfiguration = GeneralUtility::makeInstance(ExtensionConfiguration::class);
